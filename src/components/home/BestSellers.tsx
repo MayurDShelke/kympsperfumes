@@ -5,46 +5,43 @@ import { ProductCard } from "@/components/ui/ProductCard";
 import { perfumes } from "@/data/perfumes";
 
 export const BestSellers = () => {
-  const bestSellers = perfumes.filter(p => p.isBestSeller);
+  // Get top 3 best sellers for the elite layout
+  const bestSellers = perfumes.filter(p => p.isBestSeller).slice(0, 3);
 
   return (
-    <section className="py-32 px-6 bg-[#050505]">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div>
-            <motion.span 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              className="text-gold-500 uppercase tracking-[0.4em] text-[0.7rem] mb-4 block"
-            >
-              Customer Favorites
-            </motion.span>
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className="text-4xl sm:text-5xl font-serif text-white"
-            >
-              The <span className="italic text-gold-500">Best Sellers</span>
-            </motion.h2>
-          </div>
-          
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
+    <section className="py-40 px-6 bg-[#080808] relative overflow-hidden">
+      {/* Decorative background element */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-gold-500/20 to-transparent" />
+      
+      <div className="max-w-[1600px] mx-auto">
+        <div className="text-center mb-24">
+          <motion.h2 
+            initial={{ opacity: 0, letterSpacing: "0.2em" }}
+            whileInView={{ opacity: 1, letterSpacing: "0.5em" }}
+            transition={{ duration: 1.5 }}
+            className="text-2xl md:text-3xl font-serif text-gold-500 uppercase tracking-[0.5em] mb-4"
           >
-            <button className="text-sm uppercase tracking-widest text-white/60 hover:text-gold-500 transition-colors flex items-center gap-2 group">
-              View All Best Sellers
-              <span className="w-8 h-[1px] bg-white/20 group-hover:bg-gold-500 transition-colors" />
-            </button>
-          </motion.div>
+            Best Sellers
+          </motion.h2>
+          <div className="w-16 h-[1px] bg-gold-500/40 mx-auto" />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20">
           {bestSellers.map((product, idx) => (
             <ProductCard key={product.id} product={product} index={idx} />
           ))}
         </div>
+
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          className="mt-24 text-center"
+        >
+          <button className="text-[10px] uppercase tracking-[0.4em] text-gold-500/60 hover:text-gold-500 transition-colors border-b border-gold-500/20 pb-2">
+            View Complete Collection
+          </button>
+        </motion.div>
       </div>
     </section>
   );

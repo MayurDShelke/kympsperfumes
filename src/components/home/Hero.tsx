@@ -1,102 +1,152 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiChevronDown } from "react-icons/fi";
 import Image from "next/image";
 
 export const Hero = () => {
   return (
-    <section className="relative h-screen min-h-[800px] w-full overflow-hidden bg-black flex items-end justify-center pb-20">
-      {/* Architectural Background Arches */}
-      <div className="absolute inset-0 flex items-center justify-center gap-4 lg:gap-12 px-6">
-        {/* Left Arch */}
-        <div className="relative w-1/4 h-[60%] border-t-[1px] border-x-[1px] border-gold-500/20 rounded-t-full opacity-40 hidden md:block self-end mb-20">
-          <div className="absolute inset-0 bg-gradient-to-b from-gold-500/5 to-transparent rounded-t-full" />
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center whitespace-nowrap">
-            <span className="text-[10px] uppercase tracking-[0.4em] text-gold-500 block mb-2">Exclusive</span>
-            <h3 className="text-xl font-serif text-white uppercase tracking-widest">Scents</h3>
+    <section className="relative h-screen min-h-[950px] w-full overflow-hidden bg-[#0A0A0A] flex items-center justify-center">
+
+      {/* Main Container - Triptych Layout */}
+      <div className="relative w-full h-full flex items-center justify-center px-4 lg:px-12 pt-20">
+
+        {/* Left Section */}
+        <div className="relative flex-1 h-[85%] flex flex-col items-center justify-end pb-8 hidden md:flex">
+          {/* Left Archway (Architectural) */}
+          <div className="absolute inset-0 border-t-[8px] border-x-[4px] border-[#1A1A1A] rounded-t-[400px] shadow-[inset_0_20px_60px_rgba(0,0,0,0.8)] overflow-hidden">
+            {/* Inner Highlight Line */}
+            <div className="absolute top-0 left-0 w-full h-[1px] bg-gold-500/20" />
+          </div>
+
+          {/* Left Content */}
+          <div className="relative z-20 text-center mb-36 px-4">
+            <motion.h3
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="text-4xl lg:text-6xl font-serif text-gold-500/90 leading-[0.9] uppercase tracking-tighter"
+            >
+              Exclusive<br />Scents.
+            </motion.h3>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="mt-8 px-8 py-2.5 bg-gold-500 text-black text-[10px] font-bold uppercase tracking-[0.3em] rounded-sm inline-block cursor-pointer hover:bg-gold-400 transition-all shadow-xl shadow-gold-500/10"
+            >
+              Collection
+            </motion.div>
+          </div>
+
+          {/* Left Podium */}
+          <div className="relative w-56 h-24 flex flex-col items-center">
+            <div className="w-full h-10 bg-[#080808] rounded-[50%] border-t border-white/5 shadow-2xl relative z-30" />
+            <div className="absolute -bottom-4 w-[85%] h-10 bg-[#040404] rounded-[50%] border-t border-white/5 z-20" />
+            <div className="absolute -bottom-8 w-[70%] h-10 bg-black rounded-[50%] z-10" />
           </div>
         </div>
 
-        {/* Main Central Arch (Podium) */}
-        <div className="relative w-full md:w-1/3 h-[85%] border-t-[1px] border-x-[1px] border-gold-500/40 rounded-t-full flex flex-col items-center justify-end pb-32">
-          {/* Ambient Glow behind the bottle */}
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-64 h-64 bg-gold-500/20 blur-[100px] rounded-full" />
-          
-          {/* The Podium */}
-          <div className="absolute bottom-0 w-full h-24 bg-gradient-to-t from-zinc-900 to-black border-t border-white/5 rounded-t-[50%] scale-x-125" />
-          <div className="absolute bottom-4 w-[80%] h-16 bg-gradient-to-t from-zinc-900 to-black border-t border-white/5 rounded-t-[50%] scale-x-110" />
+        {/* Central Section - Focus Arch */}
+        <div className="relative w-full md:w-[45%] lg:w-[40%] h-[95%] mx-2 lg:mx-8 flex flex-col items-center justify-end pb-16 z-10">
+          {/* Central Arch with Glowing Metallic Rim */}
+          <div
+            className="absolute inset-0 border-t-[14px] border-x-[8px] border-[#151515] rounded-t-[600px] shadow-[0_0_150px_rgba(0,0,0,1)] bg-[#050505]"
+            style={{
+              boxShadow: '0 -25px 150px rgba(212,175,55,0.2), inset 0 50px 200px rgba(212,175,55,0.08)',
+            }}
+          >
+            {/* Glowing inner gold rim */}
+            <div className="absolute inset-0 border-t-[3px] border-x-[1px] border-gold-500/60 rounded-t-[600px] blur-[2px]" />
+            <div className="absolute inset-0 border-t-[1px] border-x-[0.5px] border-gold-400 rounded-t-[600px] opacity-80" />
+          </div>
 
-          {/* Product Showcase */}
+          {/* Brand Name Label */}
+
+
+          {/* Product Image - Scaled to fill container */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-            className="relative z-10 w-64 h-80 mb-12"
+            transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
+            className="relative z-20 w-[500px] h-[650px] lg:w-[850px] lg:h-[1050px] -mb-16"
           >
             <Image
-              src="/asset/dominus.jpg"
-              alt="Dominus Luxury Perfume"
+              src="/asset/golden_ember.png"
+              alt="KYMPS Golden Ember"
               fill
-              className="object-contain drop-shadow-[0_20px_50px_rgba(212,175,55,0.3)]"
+              priority
+              className="object-contain drop-shadow-[0_80px_150px_rgba(0,0,0,1)] brightness-110 contrast-125"
             />
+            {/* Expanded Cinematic Ambient Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160%] h-[160%] bg-gold-600/15 blur-[250px] rounded-full -z-10" />
+
+            {/* Subtle Reflection on the base of the bottle */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[10%] bg-gradient-to-t from-gold-500/10 to-transparent blur-xl pointer-events-none" />
           </motion.div>
 
-          {/* Main Title */}
-          <div className="relative z-10 text-center">
-            <motion.span 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-gold-500 uppercase tracking-[0.6em] text-[0.6rem] block mb-4"
-            >
-              Premium Perfume From Secret Scent
-            </motion.span>
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="text-6xl font-serif text-white tracking-[0.2em] uppercase"
-            >
-              DEZEL
-            </motion.h1>
+          {/* Central Podium (Stacked Thick Cylinders) */}
+          <div className="relative w-full h-32 flex flex-col items-center">
+            <div className="w-full h-16 bg-[#0A0A0A] rounded-[50%] border-t border-white/10 shadow-2xl relative z-30">
+              {/* Edge highlight */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1.5px] bg-gold-500/20 blur-[1px]" />
+            </div>
+            <div className="absolute bottom-6 w-[88%] h-16 bg-[#060606] rounded-[50%] border-t border-white/5 shadow-xl z-20" />
+            <div className="absolute -bottom-2 w-[75%] h-16 bg-[#020202] rounded-[50%] border-t border-white/5 z-10" />
           </div>
         </div>
 
-        {/* Right Arch */}
-        <div className="relative w-1/4 h-[60%] border-t-[1px] border-x-[1px] border-gold-500/20 rounded-t-full opacity-40 hidden md:block self-end mb-20">
-          <div className="absolute inset-0 bg-gradient-to-b from-gold-500/5 to-transparent rounded-t-full" />
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center whitespace-nowrap">
-            <span className="text-[10px] uppercase tracking-[0.4em] text-gold-500 block mb-2">Private</span>
-            <h3 className="text-xl font-serif text-white uppercase tracking-widest">Maison</h3>
+        {/* Right Section */}
+        <div className="relative flex-1 h-[85%] flex flex-col items-center justify-end pb-8 hidden md:flex">
+          {/* Right Archway */}
+          <div className="absolute inset-0 border-t-[8px] border-x-[4px] border-[#1A1A1A] rounded-t-[400px] shadow-[inset_0_20px_60px_rgba(0,0,0,0.8)] overflow-hidden">
+            {/* Inner Highlight Line */}
+            <div className="absolute top-0 left-0 w-full h-[1px] bg-gold-500/20" />
+          </div>
+
+          {/* Right Content */}
+          <div className="relative z-20 text-center mb-36 px-4">
+            <motion.h3
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="text-4xl lg:text-6xl font-serif text-gold-500/90 leading-[0.9] uppercase tracking-tighter"
+            >
+              Exclusive<br />Scents.
+            </motion.h3>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="mt-8 px-8 py-2.5 bg-gold-500 text-black text-[10px] font-bold uppercase tracking-[0.3em] rounded-sm inline-block cursor-pointer hover:bg-gold-400 transition-all shadow-xl shadow-gold-500/10"
+            >
+              Discover
+            </motion.div>
+          </div>
+
+          {/* Right Podium */}
+          <div className="relative w-56 h-24 flex flex-col items-center">
+            <div className="w-full h-10 bg-[#080808] rounded-[50%] border-t border-white/5 shadow-2xl relative z-30" />
+            <div className="absolute -bottom-4 w-[85%] h-10 bg-[#040404] rounded-[50%] border-t border-white/5 z-20" />
+            <div className="absolute -bottom-8 w-[70%] h-10 bg-black rounded-[50%] z-10" />
           </div>
         </div>
+
       </div>
 
-      {/* Floating Controls / Navigation */}
-      <div className="relative z-20 w-full max-w-7xl px-6 flex items-center justify-between pointer-events-none">
-        <div className="flex flex-col gap-8 pointer-events-auto">
-          <div className="space-y-1">
-            <div className="w-12 h-[1px] bg-gold-500" />
-            <div className="w-8 h-[1px] bg-white/20" />
-            <div className="w-4 h-[1px] bg-white/20" />
-          </div>
-        </div>
-        
-        <div className="flex items-center gap-12 pointer-events-auto">
-          <button className="text-[10px] uppercase tracking-[0.3em] text-white/60 hover:text-gold-500 transition-colors">Discover</button>
-          <button className="text-[10px] uppercase tracking-[0.3em] text-white/60 hover:text-gold-500 transition-colors">Catalog</button>
-        </div>
-      </div>
+      {/* Background Vertical Light Guides */}
+      <div className="absolute top-0 left-[25%] w-[1px] h-full bg-gradient-to-b from-transparent via-gold-500/15 to-transparent hidden xl:block pointer-events-none" />
+      <div className="absolute top-0 right-[25%] w-[1px] h-full bg-gradient-to-b from-transparent via-gold-500/15 to-transparent hidden xl:block pointer-events-none" />
 
-      {/* Scroll Indicator */}
+      {/* Floating Indicator */}
       <motion.div
         animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40"
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-30 z-30 pointer-events-none"
       >
-        <span className="text-[0.5rem] uppercase tracking-widest text-white">Explore</span>
-        <FiChevronDown size={14} className="text-gold-500" />
+        <span className="text-[10px] uppercase tracking-[0.6em] text-white font-light">Scroll</span>
+        <div className="w-[1px] h-20 bg-gradient-to-b from-gold-500 to-transparent" />
       </motion.div>
+
     </section>
   );
 };
