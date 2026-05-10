@@ -68,7 +68,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative z-20 w-[500px] h-[650px] lg:w-[850px] lg:h-[1050px] -mb-16"
+            className="relative z-20 w-[280px] h-[380px] md:w-[420px] md:h-[580px] lg:w-[520px] lg:h-[720px] xl:w-[600px] xl:h-[820px] -mb-16"
           >
             <Image
               src="/asset/golden_ember.png"
