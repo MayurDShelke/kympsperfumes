@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { perfumes } from "@/data/perfumes";
+import Link from "next/link";
 
 export const BestSellers = () => {
   // Get top 3 best sellers for the elite layout
@@ -38,9 +39,9 @@ export const BestSellers = () => {
           transition={{ delay: 0.8 }}
           className="mt-24 text-center"
         >
-          <button className="text-[10px] uppercase tracking-[0.4em] text-gold-500/60 hover:text-gold-500 transition-colors border-b border-gold-500/20 pb-2">
+          <Link href="/shop" className="text-[10px] uppercase tracking-[0.4em] text-gold-500/60 hover:text-gold-500 transition-colors border-b border-gold-500/20 pb-2">
             View Complete Collection
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>

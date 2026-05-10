@@ -13,9 +13,9 @@ export const Hero = () => {
         {/* Left Section */}
         <div className="relative flex-1 h-[85%] flex flex-col items-center justify-end pb-8 hidden md:flex">
           {/* Left Archway (Architectural) */}
-          <div className="absolute inset-0 border-t-[8px] border-x-[4px] border-[#1A1A1A] rounded-t-[400px] shadow-[inset_0_20px_60px_rgba(0,0,0,0.8)] overflow-hidden">
+          <div className="absolute inset-0 border-t-[8px] border-x-[4px] border-[#222] rounded-t-[400px] shadow-[inset_0_20px_60px_rgba(0,0,0,0.8)] overflow-hidden">
             {/* Inner Highlight Line */}
-            <div className="absolute top-0 left-0 w-full h-[1px] bg-gold-500/20" />
+            <div className="absolute top-0 left-0 w-full h-[1px] bg-gold-500/40" />
           </div>
 
           {/* Left Content */}
@@ -50,14 +50,14 @@ export const Hero = () => {
         <div className="relative w-full md:w-[45%] lg:w-[40%] h-[95%] mx-2 lg:mx-8 flex flex-col items-center justify-end pb-16 z-10">
           {/* Central Arch with Glowing Metallic Rim */}
           <div
-            className="absolute inset-0 border-t-[14px] border-x-[8px] border-[#151515] rounded-t-[600px] shadow-[0_0_150px_rgba(0,0,0,1)] bg-[#050505]"
+            className="absolute inset-0 border-t-[14px] border-x-[8px] border-[#222] rounded-t-[600px] shadow-[0_0_150px_rgba(0,0,0,1)] bg-[#050505]"
             style={{
               boxShadow: '0 -25px 150px rgba(212,175,55,0.2), inset 0 50px 200px rgba(212,175,55,0.08)',
             }}
           >
             {/* Glowing inner gold rim */}
-            <div className="absolute inset-0 border-t-[3px] border-x-[1px] border-gold-500/60 rounded-t-[600px] blur-[2px]" />
-            <div className="absolute inset-0 border-t-[1px] border-x-[0.5px] border-gold-400 rounded-t-[600px] opacity-80" />
+            <div className="absolute inset-0 border-t-[3px] border-x-[1px] border-gold-500/80 rounded-t-[600px] blur-[2px]" />
+            <div className="absolute inset-0 border-t-[1px] border-x-[0.5px] border-gold-400 rounded-t-[600px] opacity-100" />
           </div>
 
           {/* Brand Name Label */}
@@ -86,21 +86,21 @@ export const Hero = () => {
 
           {/* Central Podium (Stacked Thick Cylinders) */}
           <div className="relative w-full h-32 flex flex-col items-center">
-            <div className="w-full h-16 bg-[#0A0A0A] rounded-[50%] border-t border-white/10 shadow-2xl relative z-30">
+            <div className="w-full h-16 bg-[#0A0A0A] rounded-[50%] border-t border-white/20 shadow-2xl relative z-30">
               {/* Edge highlight */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1.5px] bg-gold-500/20 blur-[1px]" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1.5px] bg-gold-500/40 blur-[1px]" />
             </div>
-            <div className="absolute bottom-6 w-[88%] h-16 bg-[#060606] rounded-[50%] border-t border-white/5 shadow-xl z-20" />
-            <div className="absolute -bottom-2 w-[75%] h-16 bg-[#020202] rounded-[50%] border-t border-white/5 z-10" />
+            <div className="absolute bottom-6 w-[88%] h-16 bg-[#060606] rounded-[50%] border-t border-white/15 shadow-xl z-20" />
+            <div className="absolute -bottom-2 w-[75%] h-16 bg-[#020202] rounded-[50%] border-t border-white/10 z-10" />
           </div>
         </div>
 
         {/* Right Section */}
         <div className="relative flex-1 h-[85%] flex flex-col items-center justify-end pb-8 hidden md:flex">
           {/* Right Archway */}
-          <div className="absolute inset-0 border-t-[8px] border-x-[4px] border-[#1A1A1A] rounded-t-[400px] shadow-[inset_0_20px_60px_rgba(0,0,0,0.8)] overflow-hidden">
+          <div className="absolute inset-0 border-t-[8px] border-x-[4px] border-[#222] rounded-t-[400px] shadow-[inset_0_20px_60px_rgba(0,0,0,0.8)] overflow-hidden">
             {/* Inner Highlight Line */}
-            <div className="absolute top-0 left-0 w-full h-[1px] bg-gold-500/20" />
+            <div className="absolute top-0 left-0 w-full h-[1px] bg-gold-500/40" />
           </div>
 
           {/* Right Content */}

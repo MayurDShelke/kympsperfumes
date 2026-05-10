@@ -54,7 +54,7 @@ export const perfumes: Perfume[] = [
     brand: "Maison Francis Kurkdjian",
     price: 450,
     rating: 5.0,
-    image: "/asset/p3.jpg",
+    image: "/asset/p3.png",
     category: "Unisex",
     notes: {
       top: ["Jasmine", "Saffron"],

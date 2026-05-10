@@ -18,7 +18,7 @@ export const ProductCard = ({ product, index = 0, className }: ProductCardProps)
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.2, duration: 1 }}
-      className={cn("group relative flex flex-col bg-[#0A0A0A] border border-white/5 overflow-hidden", className)}
+      className={cn("group relative flex flex-col bg-[#0A0A0A] border border-white/15 overflow-hidden", className)}
     >
       {/* Product Number Badge (Elite Style) */}
       <div className="absolute top-6 left-6 w-10 h-10 rounded-full bg-gold-500 flex items-center justify-center z-20 shadow-[0_4px_20px_rgba(212,175,55,0.4)]">

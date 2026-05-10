@@ -34,7 +34,7 @@ export const FilterSidebar = () => {
 
   return (
     <div className="w-full lg:w-64 space-y-8">
-      <div className="pb-8 border-b border-white/10">
+      <div className="pb-8 border-b border-white/20">
         <h2 className="text-xl font-serif text-white uppercase tracking-widest">Filters</h2>
       </div>
 
@@ -85,7 +85,7 @@ export const FilterSidebar = () => {
       <div className="space-y-6 pt-4">
         <span className="text-xs uppercase tracking-[0.2em] text-white/80">Price Range</span>
         <div className="space-y-4">
-          <div className="h-[2px] bg-white/10 relative">
+          <div className="h-[2px] bg-white/20 relative">
             <div className="absolute left-0 right-0 h-full bg-gold-500" />
             <div className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full cursor-pointer" />
             <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full cursor-pointer" />

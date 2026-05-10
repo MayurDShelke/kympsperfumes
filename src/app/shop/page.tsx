@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useMemo } from "react";
 import { Navbar } from "@/components/ui/Navbar";
 import { Footer } from "@/components/ui/Footer";
 import { ProductCard } from "@/components/ui/ProductCard";
@@ -6,6 +9,32 @@ import { perfumes } from "@/data/perfumes";
 import { FiSearch, FiSliders } from "react-icons/fi";
 
 export default function ShopPage() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortBy, setSortBy] = useState("Featured");
+
+  const filteredPerfumes = useMemo(() => {
+    let result = [...perfumes];
+
+    // Search
+    if (searchQuery) {
+      result = result.filter(p => 
+        p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.brand.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    // Sort
+    if (sortBy === "Price: Low to High") {
+      result.sort((a, b) => a.price - b.price);
+    } else if (sortBy === "Price: High to Low") {
+      result.sort((a, b) => b.price - a.price);
+    } else if (sortBy === "Newest") {
+      result.reverse();
+    }
+
+    return result;
+  }, [searchQuery, sortBy]);
+
   return (
     <main className="min-h-screen bg-luxury-black">
       <Navbar />
@@ -28,16 +57,22 @@ export default function ShopPage() {
               <input 
                 type="text" 
                 placeholder="SEARCH COLLECTION"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 className="bg-transparent border-b border-white/10 py-2 pl-8 pr-4 text-xs uppercase tracking-widest text-white focus:outline-none focus:border-gold-500 transition-all w-64"
               />
             </div>
             <div className="hidden lg:flex items-center gap-2 text-[10px] uppercase tracking-widest text-white/40">
               <span>Sort By:</span>
-              <select className="bg-transparent text-white focus:outline-none cursor-pointer">
-                <option>Featured</option>
-                <option>Price: Low to High</option>
-                <option>Price: High to Low</option>
-                <option>Newest</option>
+              <select 
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="bg-transparent text-white focus:outline-none cursor-pointer"
+              >
+                <option value="Featured">Featured</option>
+                <option value="Price: Low to High">Price: Low to High</option>
+                <option value="Price: High to Low">Price: High to Low</option>
+                <option value="Newest">Newest</option>
               </select>
             </div>
           </div>
@@ -58,21 +93,25 @@ export default function ShopPage() {
 
         {/* Product Grid */}
         <div className="flex-1">
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-16">
-            {perfumes.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-            {/* Repeat for visual density */}
-            {perfumes.map((product) => (
-              <ProductCard key={`${product.id}-rev`} product={product} />
-            ))}
-          </div>
+          {filteredPerfumes.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-16">
+              {filteredPerfumes.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          ) : (
+            <div className="py-20 text-center">
+              <p className="text-white/40 uppercase tracking-[0.4em] text-xs">No fragrances found matching your search</p>
+            </div>
+          )}
           
-          <div className="mt-32 flex justify-center">
-            <button className="px-12 py-4 border border-white/10 text-white text-xs uppercase tracking-[0.3em] hover:border-gold-500 hover:text-gold-500 transition-all">
-              Load More
-            </button>
-          </div>
+          {filteredPerfumes.length > 6 && (
+            <div className="mt-32 flex justify-center">
+              <button className="px-12 py-4 border border-white/10 text-white text-xs uppercase tracking-[0.3em] hover:border-gold-500 hover:text-gold-500 transition-all">
+                Load More
+              </button>
+            </div>
+          )}
         </div>
       </div>
 

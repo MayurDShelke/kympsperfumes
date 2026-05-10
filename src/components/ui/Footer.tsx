@@ -1,18 +1,24 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { FiInstagram, FiTwitter, FiFacebook, FiArrowUp } from "react-icons/fi";
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#050505] pt-24 pb-12 px-6 border-t border-white/5">
+    <footer className="bg-[#050505] pt-24 pb-12 px-6 border-t border-white/15">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           {/* Brand Info */}
           <div className="col-span-1 lg:col-span-1">
-            <Link href="/" className="flex flex-col mb-8">
-              <span className="text-2xl font-serif tracking-[0.3em] uppercase text-gold-500">KYMPS</span>
-              <span className="text-[0.6rem] tracking-[0.5em] uppercase text-white/40">Parfums de Luxe</span>
+            <Link href="/" className="mb-10 block w-fit">
+              <Image 
+                src="/asset/logo (1).png" 
+                alt="KYMPS Logo" 
+                width={200} 
+                height={70} 
+                className="opacity-100 transition-opacity"
+              />
             </Link>
             <p className="text-white/50 text-sm leading-relaxed font-light mb-8 max-w-xs">
               Crafting olfactory masterpieces that transcend time and space. Each scent is a unique journey into the essence of luxury.
@@ -59,7 +65,7 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className="pt-12 border-t border-white/15 flex flex-col md:flex-row justify-between items-center gap-8">
           <p className="text-[0.7rem] uppercase tracking-widest text-white/30">
             © 2024 KYMPS PARFUMS DE LUXE. ALL RIGHTS RESERVED.
           </p>

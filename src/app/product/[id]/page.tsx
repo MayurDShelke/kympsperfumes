@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Navbar } from "@/components/ui/Navbar";
 import { Footer } from "@/components/ui/Footer";
 import { perfumes } from "@/data/perfumes";
@@ -5,9 +8,13 @@ import { FragranceNotes } from "@/components/product/FragranceNotes";
 import { ProductCard } from "@/components/ui/ProductCard";
 import Image from "next/image";
 import { FiStar, FiShoppingBag, FiHeart, FiShield, FiRefreshCcw, FiTruck } from "react-icons/fi";
+import { useCart } from "@/context/CartContext";
 
 export default function ProductPage({ params }: { params: { id: string } }) {
-  const product = perfumes.find((p) => p.id === "1") || perfumes[0]; // Hardcoding for demo if id not found
+  const [selectedSize, setSelectedSize] = useState("100ML");
+  const { addToCart } = useCart();
+  
+  const product = perfumes.find((p) => p.id === params.id) || perfumes[0];
   const relatedProducts = perfumes.filter(p => p.id !== product.id).slice(0, 4);
 
   return (
@@ -68,7 +75,8 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                   {["50ML", "100ML"].map((size) => (
                     <button 
                       key={size}
-                      className={`px-8 py-3 border transition-all text-xs tracking-widest ${size === "100ML" ? "border-gold-500 text-gold-500" : "border-white/10 text-white/40 hover:border-white/40"}`}
+                      onClick={() => setSelectedSize(size)}
+                      className={`px-8 py-3 border transition-all text-xs tracking-widest ${selectedSize === size ? "border-gold-500 text-gold-500" : "border-white/10 text-white/40 hover:border-white/40"}`}
                     >
                       {size}
                     </button>
@@ -78,7 +86,10 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
               {/* Actions */}
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <button className="flex-1 bg-gold-500 text-luxury-black font-bold uppercase tracking-[0.2em] py-5 flex items-center justify-center gap-3 hover:bg-gold-400 transition-colors">
+                <button 
+                  onClick={() => addToCart(product, selectedSize)}
+                  className="flex-1 bg-gold-500 text-luxury-black font-bold uppercase tracking-[0.2em] py-5 flex items-center justify-center gap-3 hover:bg-gold-400 transition-colors"
+                >
                   <FiShoppingBag size={20} />
                   Add to Shopping Bag
                 </button>

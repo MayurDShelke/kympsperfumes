@@ -26,71 +26,89 @@ export const FeaturedCollections = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           
           {/* Block 1: Women's */}
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="relative h-[450px] bg-[#0A0A0A] border border-white/5 p-12 flex flex-col justify-center items-center group cursor-pointer"
-          >
-            <div className="absolute top-8 left-8 w-8 h-8 rounded-full border border-gold-500/20 flex items-center justify-center">
-              <div className="w-1.5 h-1.5 bg-gold-500 rounded-full" />
-            </div>
-            <p className="text-[10px] uppercase tracking-[0.5em] text-gold-500/40 mb-4">Maison's</p>
-            <h3 className="text-4xl font-serif text-white tracking-widest group-hover:text-gold-500 transition-colors duration-700">Women's</h3>
-            <div className="absolute bottom-12 w-8 h-[1px] bg-gold-500/20 group-hover:w-16 transition-all duration-700" />
-          </motion.div>
+          <Link href="/shop?category=women">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              className="relative h-[450px] bg-[#0A0A0A] border border-white/15 overflow-hidden group cursor-pointer"
+            >
+              <div className="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-1000">
+                <Image src="/asset/femme.png" alt="Women's Collection" fill className="object-cover transition-transform duration-[2s] group-hover:scale-110" />
+              </div>
+              <div className="relative z-10 p-12 flex flex-col justify-center items-center h-full">
+                <div className="absolute top-8 left-8 w-8 h-8 rounded-full border border-gold-500/20 flex items-center justify-center">
+                  <div className="w-1.5 h-1.5 bg-gold-500 rounded-full" />
+                </div>
+                <p className="text-[10px] uppercase tracking-[0.5em] text-gold-500/40 mb-4">Maison's</p>
+                <h3 className="text-4xl font-serif text-white tracking-widest group-hover:text-gold-500 transition-colors duration-700">Women's</h3>
+                <div className="absolute bottom-12 w-8 h-[1px] bg-gold-500/20 group-hover:w-16 transition-all duration-700" />
+              </div>
+            </motion.div>
+          </Link>
 
-          {/* Block 2: MLLS.OMS (Men's variant) */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="relative h-[450px] bg-[#080808] border border-white/5 p-12 flex flex-col justify-center items-center group cursor-pointer"
-          >
-             <p className="text-[10px] uppercase tracking-[0.5em] text-gold-500/40 mb-4">MLLS.OMS</p>
-             <h3 className="text-4xl font-serif text-white tracking-widest group-hover:text-gold-500 transition-colors duration-700">Women's</h3>
-             <div className="absolute bottom-12 w-8 h-[1px] bg-gold-500/20 group-hover:w-16 transition-all duration-700" />
-          </motion.div>
+          {/* Block 2: Men's */}
+          <Link href="/shop?category=men">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="relative h-[450px] bg-[#080808] border border-white/15 overflow-hidden group cursor-pointer"
+            >
+               <div className="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-1000 grayscale">
+                 <Image src="/asset/dominus.jpg" alt="Men's Collection" fill className="object-cover transition-transform duration-[2s] group-hover:scale-110" />
+               </div>
+               <div className="relative z-10 p-12 flex flex-col justify-center items-center h-full">
+                 <p className="text-[10px] uppercase tracking-[0.5em] text-gold-500/40 mb-4">MLLS.OMS</p>
+                 <h3 className="text-4xl font-serif text-white tracking-widest group-hover:text-gold-500 transition-colors duration-700">Men's</h3>
+                 <div className="absolute bottom-12 w-8 h-[1px] bg-gold-500/20 group-hover:w-16 transition-all duration-700" />
+               </div>
+            </motion.div>
+          </Link>
 
           {/* Block 3: Unisex (Cinematic) */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="relative h-[450px] bg-black border border-white/5 overflow-hidden group cursor-pointer"
-          >
-            {/* Background Image (Abstract/Cinematic) */}
-            <div className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity duration-1000 grayscale group-hover:grayscale-0">
-               <Image 
-                src="/asset/golden_ember (1).jpg" 
-                alt="Unisex Collection" 
-                fill 
-                className="object-cover transform group-hover:scale-110 transition-transform duration-[2s]"
-               />
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-            
-            <div className="relative h-full flex flex-col justify-center items-center p-12">
-               <div className="absolute top-8 left-8 w-8 h-8 rounded-full border border-gold-500/40 flex items-center justify-center bg-black/40">
-                <div className="w-1.5 h-1.5 bg-gold-500 rounded-full" />
+          <Link href="/shop?category=unisex">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="relative h-[450px] bg-black border border-white/15 overflow-hidden group cursor-pointer"
+            >
+              {/* Background Image (Abstract/Cinematic) */}
+              <div className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity duration-1000 grayscale group-hover:grayscale-0">
+                 <Image 
+                  src="/asset/golden_ember.png" 
+                  alt="Unisex Collection" 
+                  fill 
+                  className="object-cover transform group-hover:scale-110 transition-transform duration-[2s]"
+                 />
               </div>
-              <p className="text-[10px] uppercase tracking-[0.5em] text-gold-500/60 mb-4">Private Blend</p>
-              <h3 className="text-4xl font-serif text-white tracking-widest">Unisex</h3>
-            </div>
-          </motion.div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+              
+              <div className="relative h-full flex flex-col justify-center items-center p-12">
+                 <div className="absolute top-8 left-8 w-8 h-8 rounded-full border border-gold-500/40 flex items-center justify-center bg-black/40">
+                  <div className="w-1.5 h-1.5 bg-gold-500 rounded-full" />
+                </div>
+                <p className="text-[10px] uppercase tracking-[0.5em] text-gold-500/60 mb-4">Private Blend</p>
+                <h3 className="text-4xl font-serif text-white tracking-widest">Unisex</h3>
+              </div>
+            </motion.div>
+          </Link>
 
           {/* Block 4: Featured Product Shot */}
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="relative h-[450px] bg-[#0A0A0A] border border-white/5 overflow-hidden group"
-          >
-            <Image 
-              src="/asset/p3.jpg" 
-              alt="Featured Fragrance" 
-              fill 
-              className="object-contain p-12 transition-all duration-1000 group-hover:scale-105 group-hover:brightness-110"
-            />
-            {/* Subtle overlay */}
-            <div className="absolute inset-0 bg-gold-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-          </motion.div>
+          <Link href="/shop">
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              className="relative h-[450px] bg-[#0A0A0A] border border-white/15 overflow-hidden group cursor-pointer"
+            >
+              <Image 
+                src="/asset/p3.png" 
+                alt="Featured Fragrance" 
+                fill 
+                className="object-contain p-12 transition-all duration-1000 group-hover:scale-105 group-hover:brightness-110"
+              />
+              {/* Subtle overlay */}
+              <div className="absolute inset-0 bg-gold-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+            </motion.div>
+          </Link>
 
         </div>
 
